@@ -1,0 +1,14 @@
+  <div class="modal-dialog" *ngIf="visible">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"  [hidden]="!closable" (click)="close()">
+              <span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+              <h3 class="modal-title" id="lineModalLabel">{{title}}</h3>
+        </div>
+        <div class="modal-body">
+          <ng-content></ng-content>
+          <app-spinner *ngIf="spinner"></app-spinner>
+        </div>
+    </div>
+  </div>
+<div *ngIf="visible" class="overlay" (click)="close()"></div>

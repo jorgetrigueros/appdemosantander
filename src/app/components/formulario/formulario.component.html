@@ -1,0 +1,83 @@
+
+<app-modal [(visible)]="showModal" [closable]="false" [spinner]="true" title="Procesando la petición">
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa...</p>
+</app-modal>
+
+<h3>Formulario de registro</h3>
+<br>
+<form class="form-horizontal" [formGroup]="form">
+  <div class="form-group">
+    <label for="nombre" class="col-sm-2 control-label">Nombre *</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" placeholder="Escriba aquí su nombre" #Nombre id="Nombre"
+        formControlName="Nombre"> 
+       <div invalidmessage="Nombre">
+          <span *invalidType="'required'">Dato requerido</span>
+       </div>        
+    </div>   
+  </div>  
+  <div class="form-group">
+    <label for="direccion" class="col-sm-2 control-label">Dirección</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="direccion" placeholder="Escriba aquí su dirección"
+             formControlName="Direccion">    
+    </div>
+  </div>   
+  <div class="form-group">
+    <label for="email" class="col-sm-2 control-label">Email *</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" name="email" placeholder="Email" #Email
+             formControlName="Email"> 
+       <div invalidmessage="Email">
+          <span *invalidType="'required'">Dato requerido</span>
+          <span *invalidType="'email'">Email incorrecto</span>
+       </div>   
+       <!--             
+        <div *ngIf="form.controls['Email'].hasError('email') && form.controls['Email'].value!=='' 
+              && form.controls['Email'].touched" class="error">Email inválido
+        </div>  
+        -->             
+    </div>
+  </div>
+  <div class="form-group">
+    <label  class="col-sm-2 control-label">Código postal</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" maxlength="5" OnlyDigit="true" #CodigoPostal placeholder="Codigo postal" 
+            formControlName="CodigoPostal">
+       <div invalidmessage="CodigoPostal">
+          <p *invalidType="'codigoPostal'">Código postal incorrecto</p>
+       </div>             
+            <!--
+        <div *ngIf="form.controls['CodigoPostal'].hasError('codigoPostal') && form.controls['CodigoPostal'].touched" class="error">Código postal inválido
+        </div>   
+        -->     
+    </div>
+  </div>  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" formControlName="TextosLegales"> He leído los términos y condiciones legales
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+
+      <!--Componente html -->
+      <button type="button" (click)="registrarDatos($event);" class="btn btn-danger"
+             [disabled]="!form.valid || !form.controls['TextosLegales'].value">Sign in</button>
+
+      <!--Custom components-->
+      <custom-button 
+        [cssClassName]="'btn btn-primary'"  [disabled]="false"
+        (clickButton)="registrarDatos()">Sign in custom version</custom-button>
+
+      <custom-button
+        [cssClassName]="'btn btn-danger'"
+        (clickButton)="alert('Cancelar')">Cancelar</custom-button>
+
+    </div>
+  </div>
+</form> 

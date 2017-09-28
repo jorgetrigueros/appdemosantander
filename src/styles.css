@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+/* Add application styles & imports to this file! */
+
+.santander {
+    margin-top:20px;
+    /*background-color: #ec0000;  */
+  }
+  
+  .page-header {
+    margin:0px !important;
+    height: 80px;
+  }
+  
+  /*
+  .santander>h1 {
+    color:#fff;
+  }*/
+  
+  /*
+  .santander>small {
+    color:#fff;
+  }*/
+  
+  .espaciado_superior {
+  margin-top:50px;
+  }
+  
+  .marginT10 {
+    margin-top:10px;
+  }
+  
+  .error {
+    color:red;
+    font-weight: bold;
+    font-size:12px;
+    margin-left: 4px;
+  }
+  
+  .has-error {
+    /*border-left:3px solid red !important;*/
+    border:2px solid red !important;
+  }
+  
+  .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    background-color: red !important;
+    color: white;
+  }
+  
+  .nav>li>a {
+    color: black;
+  }
+  
